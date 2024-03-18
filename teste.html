@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <!-- Define a variavel de ambiente para "UTF-8"-->
+    <meta charset="UTF-8">
+    <!-- Define a variavel de ambiente "name", da variavel do sistema "viewport", que receberá os valores definidos no próximo atributo "content", o qual receberá o conteúdo para uso da variável "viewport", 
+    neste caso declarando a variável de sistema da seguinte forma: viewport="width=device-width, initial-scale=1.0"
+-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o titulo da pagina que aparecera-->
+    <title>Criando Componentes em React</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <!-- Carrega localmente os arquivos de configuração de estilos do "./bootstrap.min.css"-->
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <!-- Carrega localmente o ícone da página que será exibido-->
+    <link rel="shortcut icon" href="./favicon.ico">
+</head> <!-- encerra a o bloco de codigo do cabeçalho-->
+
+<body>
+<!-- A linha abaixo é a div necessária pra funcionar corretamente o react -->
+    <div id="mydiv"></div>
+
+    <!-- AS LINHAS ABAIXO SÃO NECESSÁRIAS PARA O CORRETO FUNCIONAMENTO DO REACT-->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <!-- CARREGA A BIBLIOTECA BOOTSTRAP-->
+    <script src="./bootstrap.bundle.min.js"></script>
+
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script> -->
+     <!-- CARREGA A BIBLIOTECA REACT-->
+    <script src="./react.development.js"></script>
+
+    <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> -->
+     <!-- CARREGA A BIBLIOTECA POPPER-->
+    <script src="./popper.js"></script>
+
+    <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
+     <!-- CARREGA A BIBLIOTECA REACT-DOM -->
+    <script src="./react-dom.development.js"></script>
+
+    <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>     -->
+     <!-- CARREGA A BIBLIOTECA BABEL-->
+    <script src="./babel.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.22.2/react-router-dom.production.min.js" integrity="sha512-82Gx5QtMrxGdjQk0W8k1+yVQL3mhQUMQJkBWfCp0IuGqyyYtxA1Sd4VfhdbZIPaEX2MEOSvy7Hb17w7zYRNfJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+     <!-- CARREGA A BIBLIOTECA REACT-ROUTER-DOM -->
+    <script src="./react-router-dom.production.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+     <!-- CARREGA A BIBLIOTECA JQUERY-->
+    <script src="./jquery-3.7.1.min.js"></script>
+
+    <!-- inicia o bloco de códigos react, cujo atributo "type" é definido para "text/babel", que é o tranpilador de código react-->
+    <script type="text/babel">
+
+        /*
+        * A partir daqui são delcarados todos os códigos em react
+        *
+        * Para se criar um Span é necessario que o mesmo tenha uma referencia, ou
+        * seja, é necessário que se crie um atributo ref=nomeDaVariaveilDeReferencia, que
+        * delcarada através de uma variavel somente leitura (const), da seguinte forma:
+        * 
+        */
+
+        /* A linha abaixo declara a variável "variavel", a qual receberá (=) o objeto
+        "React", o qual invocara o metodo ".createRef()", sem parâmetros (pois não ha nada entre os parênteses).*/
+        const varSpan = React.createRef();
+        
+        /* A linha abaixo declara a variavel somente leitura var_Span, a qual
+        receberá (=) todo código necessário para criar um Span, iniciando
+        o bloco de códigos com um "abre parênteses" ( */
+        const var_Span = (
+            // A linha abaixo cria o elemnto/tag em html "Span"
+           <label
+           /* a linha abaixo cria o atributo "id", o qual receberá (=) o valor,
+           entre chaves {}, em string tambem, ou seja, entre aspas duplas "varSpan" */ 
+           id={"varSpan"}
+           /* a linha abaixo cria o atributo "key", o qual receberá (=) o valor,
+           entre chaves {}, em string tambem, ou seja, entre aspas duplas "varSpan"*/
+            key={"varSpan"}
+            /*a linha abaixo cria o atributo "ref", o qual receberá (=) o valor,
+           entre chaves {}, em string tambem, ou seja, entre aspas duplas "varSpan"*/
+           ref={varSpan}
+           //finaliza o bloco de codigos do Span <Span>
+           >
+           // A linha abaixo fecha o bloco do Conteudo do Span
+           </label>
+
+        );
+        /* A linha abaixo declara a variavel ObjetoSpan, a qual recebera (=) como
+        "valor" uma "air function" () = => { /** bloco de códigos *}, a qual retornará
+        (return) a variavel "var_Span" declarada anteriormente, e inicia o bloco de
+         códigos com "abre chaves" */
+         const ObjetoSpan = () => {
+            console.log(var_Span)
+            //retorna (return) a variavel "var_Span" declarada anteriormente
+            return var_Span;
+         }
+         /* A linha abaixo delcara a variavel "container", a qual recebera (=) o valor em
+         forma de objeto "document", o qual invocará o método ".getElementById", cujo
+         parâmetro enviado é o nome do Span em string (aspas simples) dentro dos
+         parênteses ('mydiv')*/
+         const container = document.getElementById('mydiv');
+
+
+        /* A linha abaixo delcara a variavel somente leitura (const) "root", a qual recebera (=) o valor em
+         forma de objeto "ReactDOM", o qual invocará o método ".createRoot", cujo
+         parâmetro enviado, entre parênteses, é a variavel (container) declarada anteriormente*/
+        const root = ReactDOM.createRoot(container);
+         /* A linha abaixo, através do objeto "root" declarado anteriormente,
+         invoca o método ".render", o qual receberá o parâmetro <ObjetoSpan />,
+         declarado anteriormente, entre tags </>
+         */
+        root.render(<ObjetoSpan />); // renderizar via variável (contém o objeto a ser renderizado)
+    </script>
+
+</body>
+
+</html>
